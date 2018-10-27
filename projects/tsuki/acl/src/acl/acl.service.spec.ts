@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { AclService } from './acl.service';
+import {AclService} from './acl.service';
 
 describe('AclService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -8,5 +8,8 @@ describe('AclService', () => {
   it('should be created', () => {
     const service: AclService = TestBed.get(AclService);
     expect(service).toBeTruthy();
+  });
+  it('test parse acl type', () => {
+    expect(AclService.parseACLRole('test')).toBe({role: ['test']});
   });
 });
