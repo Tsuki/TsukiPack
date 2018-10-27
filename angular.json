@@ -145,33 +145,33 @@
         }
       }
     },
-    "@tsuki/acl": {
-      "root": "projects/tsuki/acl",
-      "sourceRoot": "projects/tsuki/acl/src",
+    "@tsuki/pack": {
+      "root": "projects/tsuki/pack",
+      "sourceRoot": "projects/tsuki/pack/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tsuki/acl/tsconfig.lib.json",
-            "project": "projects/tsuki/acl/ng-package.json"
+            "tsConfig": "projects/tsuki/pack/tsconfig.lib.json",
+            "project": "projects/tsuki/pack/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tsuki/acl/src/test.ts",
-            "tsConfig": "projects/tsuki/acl/tsconfig.spec.json",
-            "karmaConfig": "projects/tsuki/acl/karma.conf.js"
+            "main": "projects/tsuki/pack/src/test.ts",
+            "tsConfig": "projects/tsuki/pack/tsconfig.spec.json",
+            "karmaConfig": "projects/tsuki/pack/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tsuki/acl/tsconfig.lib.json",
-              "projects/tsuki/acl/tsconfig.spec.json"
+              "projects/tsuki/pack/tsconfig.lib.json",
+              "projects/tsuki/pack/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "@tsuki/acl": [
-        "dist/tsuki/acl"
+      "@tsuki/pack": [
+        "dist/tsuki/pack"
       ],
-      "@tsuki/acl/*": [
-        "dist/tsuki/acl/*"
+      "@tsuki/pack/*": [
+        "dist/tsuki/pack/*"
       ]
     }
   }

@@ -1,5 +1,5 @@
 {
-  "name": "@tsuki/acl",
+  "name": "@tsuki/pack",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
