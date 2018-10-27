@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@tsuki/acl": [
+        "dist/tsuki/acl"
+      ],
+      "@tsuki/acl/*": [
+        "dist/tsuki/acl/*"
+      ]
+    }
   }
 }
