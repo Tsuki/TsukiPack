@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AclRole, AclType} from './acl';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,21 @@ export class AclService {
     };
   }
 
+  get change(): Observable<AclType | boolean> {
+    return this.aclChange.asObservable();
+  }
+
   private roles: string[] = [];
   private all = false;
   private aclChange: BehaviorSubject<AclType | boolean> = new BehaviorSubject<AclType | boolean>(null);
 
   static parseACLRole(val: string | string[] | AclType): AclType {
-    if (val instanceof String) {
+    if (typeof val === 'string') {
       return {role: [val]};
     } else if (Array.isArray(val)) {
       return {role: val};
     } else {
-      return val;
+      return <AclType>val;
     }
   }
 
@@ -53,13 +58,13 @@ export class AclService {
   add(value: AclType) {
     if (value.role && value.role.length > 0) {
       this.roles.push(...value.role);
-      this.roles = [...new Set(this.roles)];
+      this.roles = Array.from(new Set(this.roles));
     }
   }
 
   attachRole(roles: string[]) {
     this.roles.push(...roles);
-    this.roles = [...new Set(this.roles)];
+    this.roles = Array.from(new Set(this.roles));
     this.aclChange.next(this.data);
   }
 
