@@ -5,11 +5,17 @@ import {AclService} from './acl.service';
 describe('AclService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
+  it('should be created', async () => {
     const service: AclService = TestBed.get(AclService);
-    expect(service).toBeTruthy();
+    await expect(service).toBeTruthy();
   });
-  it('test parse acl type', () => {
-    expect(AclService.parseACLRole('test')).toBe({role: ['test']});
+  it('test parse string acl type', async () => {
+    await expect(AclService.parseACLRole('test')).toEqual({role: ['test']});
+  });
+  it('test parse string array acl type', async () => {
+    await expect(AclService.parseACLRole(['test'])).toEqual({role: ['test']});
+  });
+  it('test parse acl type', async () => {
+    await expect(AclService.parseACLRole({role: ['test']})).toEqual({role: ['test']});
   });
 });

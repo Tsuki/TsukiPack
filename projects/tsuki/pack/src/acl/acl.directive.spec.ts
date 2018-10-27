@@ -1,8 +1,12 @@
-import { AclDirective } from './acl.directive';
+import {AclDirective} from './acl.directive';
+import {TestBed} from '@angular/core/testing';
+import {AclService} from './acl.service';
 
 describe('AclDirective', () => {
-  it('should create an instance', () => {
-    const directive = new AclDirective();
-    expect(directive).toBeTruthy();
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should create an instance', async () => {
+    const service: AclService = TestBed.get(AclService);
+    await expect(service).toBeTruthy();
   });
 });
